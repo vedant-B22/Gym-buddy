@@ -1,0 +1,48 @@
+{
+  "name": "Iron Forge Gym & Fitness",
+  "short_name": "IronForge",
+  "description": "Premium Gym Management, Offline Workout Tracking, PRs & Community",
+  "start_url": "/app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#090D16",
+  "theme_color": "#10B981",
+  "categories": ["fitness", "health", "sports", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Workout",
+      "url": "/app/workout/active",
+      "description": "Quick start a gym workout"
+    },
+    {
+      "name": "Check-in QR",
+      "url": "/app/attendance",
+      "description": "Show entry barcode / QR"
+    },
+    {
+      "name": "Admin Dashboard",
+      "url": "/admin",
+      "description": "Gym owner & staff operations"
+    }
+  ]
+}

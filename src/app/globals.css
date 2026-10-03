@@ -2,26 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --brand-primary: #10B981; /* Electric Emerald / Lime */
+    --brand-hover: #059669;
+    --brand-glow: rgba(16, 185, 129, 0.35);
+    
+    --background: #090D16;
+    --foreground: #F8FAFC;
+    --surface: #0F172A;
+    --surface-card: #141E33;
+    --surface-border: #1E293B;
+    --muted: #94A3B8;
+    --muted-foreground: #64748B;
+  }
+
+  .theme-light {
+    --brand-primary: #059669;
+    --brand-hover: #047857;
+    --brand-glow: rgba(5, 150, 105, 0.25);
+    
+    --background: #F8FAFC;
+    --foreground: #0F172A;
+    --surface: #FFFFFF;
+    --surface-card: #FFFFFF;
+    --surface-border: #E2E8F0;
+    --muted: #64748B;
+    --muted-foreground: #94A3B8;
+  }
+
+  /* Optional Orange Accent Theme */
+  [data-accent="orange"] {
+    --brand-primary: #F97316;
+    --brand-hover: #EA580C;
+    --brand-glow: rgba(249, 115, 22, 0.35);
+  }
+
+  /* Optional Crimson Accent Theme */
+  [data-accent="crimson"] {
+    --brand-primary: #EF4444;
+    --brand-hover: #DC2626;
+    --brand-glow: rgba(239, 68, 68, 0.35);
+  }
+
+  * {
+    border-color: var(--surface-border);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    color: var(--foreground);
+    background-color: var(--background);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    touch-action: manipulation;
   }
 }
 
-body {
-  color: var(--foreground);
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar-thumb {
+  background: var(--surface-border);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(20, 30, 51, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.theme-light .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Bottom Nav Safe Padding for Mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 1rem);
 }
